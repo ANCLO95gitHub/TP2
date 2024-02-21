@@ -20,5 +20,9 @@
             android:id="@+id/nav_abacus"
             android:icon="@drawable/baseline_filter_9_plus_24"
             android:title="@string/menu_abacus" />
+        <item
+            android:id="@+id/nav_statusinternet"
+            android:icon="@drawable/baseline_6_ft_apart_24"
+            android:title="@string/menu_statusinternet" />
     </group>
 </menu>

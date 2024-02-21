@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.mytp2.databinding.FragmentAbacusBinding
 
 
-    class AbacusFragment : Fragment() {
+class AbacusFragment : Fragment() {
 
         private var _binding: FragmentAbacusBinding? = null
 
