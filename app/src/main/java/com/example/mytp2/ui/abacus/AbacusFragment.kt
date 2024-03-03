@@ -24,7 +24,8 @@ class AbacusFragment : Fragment() {
         // onDestroyView.
         //private val binding get() = _binding!!
         lateinit var binding:FragmentAbacusBinding
-
+        //private lateinit var textViewAbacus: TextView
+        //private lateinit var textViewAbacus: TextView
         override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -38,8 +39,8 @@ class AbacusFragment : Fragment() {
             val root = inflater.inflate(com.example.mytp2.R.layout.fragment_abacus,container, false)
 
             //val textView: TextView = binding.textViewAbacus
-            val textView = root.findViewById<TextView>(com.example.mytp2.R.id.textViewAbacus)
-            textView.setText("asdf")
+            val textViewAbacus = root.findViewById<TextView>(com.example.mytp2.R.id.textViewAbacus)
+            textViewAbacus.setText("asdf")
             /*sabacusViewModel.text.observe(viewLifecycleOwner) {
                 textView.text = it
             }*/
@@ -48,13 +49,14 @@ class AbacusFragment : Fragment() {
             //val skseekBar2: SeekBar = binding.seekBar2
             //binding = FragmentAbacusBinding.inflate(layoutInflater)
             val skseekBar2 = root.findViewById<SeekBar>(com.example.mytp2.R.id.seekBar2)
+            val skseekBarB = root.findViewById<SeekBar>(com.example.mytp2.R.id.seekBarB)
             val tvValeurA = root.findViewById<TextView>(com.example.mytp2.R.id.tvValeurA)
             skseekBar2?.setOnSeekBarChangeListener(object :
                 SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(seek: SeekBar,
                                                progress: Int, fromUser: Boolean) {
                     // write custom code for progress is changed
-                    textView.setText("skseekBar2  changed" + progress)
+                    textViewAbacus.setText("skseekBar2  changed" + progress)
                     if(progress < 1){
                         skseekBar2.setProgress(1)
                     }
@@ -71,17 +73,20 @@ class AbacusFragment : Fragment() {
                     Toast.makeText(requireContext(),
                         "Progress is: " + seek.progress + "%",
                         Toast.LENGTH_SHORT).show()
+
+                    val aba1 = (skseekBar2.progress + skseekBarB.progress ).toString()
+                    //if( !aba1.isBlank() and !aba1.isEmpty())
+                    textViewAbacus.setText( aba1 )
                 }
             })
             // Abacus B
-            val skseekBarB = root.findViewById<SeekBar>(com.example.mytp2.R.id.seekBarB)
             val tvValeurB = root.findViewById<TextView>(com.example.mytp2.R.id.tvValeurB)
             skseekBarB?.setOnSeekBarChangeListener(object :
                 SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(seek: SeekBar,
                                                progress: Int, fromUser: Boolean) {
                     // write custom code for progress is changed
-                    textView.setText("skseekBarB  changed" + progress)
+                    textViewAbacus.setText("skseekBarB  changed" + progress)
                     if(progress < 2){
                         skseekBarB.setProgress(2)
                     }
@@ -98,11 +103,15 @@ class AbacusFragment : Fragment() {
                     Toast.makeText(requireContext(),
                         "Progress B is: " + seek.progress + "%",
                         Toast.LENGTH_SHORT).show()
+
+                    val aba1 = (skseekBar2.progress + skseekBarB.progress ).toString()
+                    //if( !aba1.isBlank() and !aba1.isEmpty())
+                    textViewAbacus.setText( aba1 )
                 }
+
             })
-            val aba1 = (skseekBar2.progress + skseekBarB.progress ).toString()
-            textView.setText( aba1 )
-            //textView.setText(skseekBar2.progress + skseekBarB.progress)
+
+            //textViewAbacus.setText(skseekBar2.progress + skseekBarB.progress)
             return root
         }
 
