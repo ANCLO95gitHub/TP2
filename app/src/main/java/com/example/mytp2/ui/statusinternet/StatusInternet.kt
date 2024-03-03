@@ -38,11 +38,8 @@ class StatusInternet : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-
         //val homeViewModel =
         //    ViewModelProvider(this).get(StatusInternetViewModel::class.java)
-
         //_binding = FragmentStatusInternetBinding.inflate(inflater, container, false)
         //val root: View = binding.root
         val root = inflater.inflate(R.layout.fragment_statusinternet,container, false)
